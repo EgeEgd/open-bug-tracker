@@ -6,6 +6,7 @@
 
 import { Notification } from "@contentful/f36-components";
 import type { NextPage, NextPageContext } from "next";
+import { Cookies } from "next/dist/server/web/spec-extension/cookies";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -36,12 +37,13 @@ const Home: NextPage = () => {
     }
   }, [router, setToken, token]);
 
-  useEffect(() => {
-    const bearer = api.defaults.headers.common["Authorization"];
-    if (typeof bearer === "string" && bearer.length > 9) {
-      router.push("http://localhost:3000/projects");
-    }
-  }, [router]);
+  // useEffect(() => {
+  //   const bearer = api.defaults.headers.common["Authorization"];
+  //   if (typeof bearer === "string" && bearer.length > 9) {
+  //     router.push("/projects");
+  //   }
+  // }, [router]);
+  //
 
   return (
     <div className={styles.container}>
@@ -68,7 +70,8 @@ const Home: NextPage = () => {
             <div>
               <h2>1. Login with GitHub &rarr;</h2>
               <p>
-                We made it easy. You only need to login using your GitHub account.
+                We made it easy. You only need to login using your GitHub
+                account.
               </p>
             </div>
           </Link>
@@ -131,30 +134,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-
-// // Dear Next.js,
-// // I want this page to be generated at build time
-// // in my machine or in Github Actions
-// // so later when users request this route
-// // they get a static HTML.
-// // Salute,
-// export async function getStaticProps() {
-
-// }
-
-// Hey ya,
-// I want this page to be generated at request time
-// in the server machine when deployed
-// so when a user requests this route
-// all data is dynamically processed.
-// Out,
-export async function getServerSideProps(context: NextPageContext) {
-  const { token } = context.query
-  if (token) {
-    context.res?.setHeader('set-cookie', `token=${token};SameSite=Lax;`)
-  }
-
-  return {
-    props: {}
-  }
-}

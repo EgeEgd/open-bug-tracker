@@ -1,0 +1,237 @@
+$ next dev
+ready - started server on 0.0.0.0:3000, url: http://localhost:3000
+event - compiled client and server successfully in 637 ms (230 modules)
+wait  - compiling /projects (client and server)...
+event - compiled client and server successfully in 578 ms (834 modules)
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',
+  code: 'ERR_INVALID_URL'
+}
+projects { id: 1, name: 'Project 1', bugs_count_active: 0, bugs_count_total: 0 }
+wait  - compiling /_error (client and server)...
+event - compiled client and server successfully in 110 ms (835 modules)
+warn  - Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/basic-features/fast-refresh#how-it-works
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',
+  code: 'ERR_INVALID_URL'
+}
+projects { id: 1, name: 'Project 1', bugs_count_active: 0, bugs_count_total: 0 }
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',
+  code: 'ERR_INVALID_URL'
+}
+projects { id: 1, name: 'Project 1', bugs_count_active: 0, bugs_count_total: 0 }
+wait  - compiling / (client and server)...
+event - compiled client and server successfully in 254 ms (848 modules)
+wait  - compiling /_error (client and server)...
+event - compiled client and server successfully in 110 ms (849 modules)
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',
+  code: 'ERR_INVALID_URL'
+}
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',
+  code: 'ERR_INVALID_URL'
+}
+projects { id: 1, name: 'Project 1', bugs_count_active: 0, bugs_count_total: 0 }
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',
+  code: 'ERR_INVALID_URL'
+}
+projects { id: 1, name: 'Project 1', bugs_count_active: 0, bugs_count_total: 0 }
+wait  - compiling...
+event - compiled client and server successfully in 363 ms (834 modules)
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',
+  code: 'ERR_INVALID_URL'
+}
+projects { id: 1, name: 'Project 1', bugs_count_active: 0, bugs_count_total: 0 }
+wait  - compiling...
+event - compiled client and server successfully in 419 ms (835 modules)
+wait  - compiling...
+event - compiled client and server successfully in 280 ms (835 modules)
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',
+  code: 'ERR_INVALID_URL'
+}
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',
+  code: 'ERR_INVALID_URL'
+}
+wait  - compiling...
+error - ./pages/projects.tsx
+Error: 
+  x Return statement is not allowed here
+    ,-[35:3]
+ 35 | ,-> return (
+ 36 | |       <div className={styles.container}>
+ 37 | |         <main className={styles.main}>
+ 38 | |           <h1 className={styles.title}>PROJECTS</h1>
+ 39 | |           <FormProject onSubmit={createProject}> </FormProject>
+ 40 | |           <div className={styles.list}>
+ 41 | |             {newProjects.length > 1 &&
+ 42 | |               newProjects.map((project: Project) => {
+ 43 | |                 return (
+ 44 | |                   <Link key={project.id} href={`/projects/${project.id}`}>
+ 45 | |                     <div className={styles.element}>
+ 46 | |                       <div className={styles.upBox}>
+ 47 | |                         <h3 className={styles.subTitle}>{project.name}</h3>
+ 48 | |   
+ 49 | |                         {project.bugs_count_active < 1 && (
+ 50 | |                           <div className={styles.solved}> SOLVED</div>
+ 51 | |                         )}
+ 52 | |                         {project.bugs_count_active > 0 && (
+ 53 | |                           <div className={styles.toFix}> TO FIX</div>
+ 54 | |                         )}
+ 55 | |                       </div>
+ 56 | |                       <div className={styles.subBox}>
+ 57 | |                         <div className={styles.idTitle}>
+ 58 | |                           Project id: {project.id}
+ 59 | |                         </div>
+ 60 | |                         <div>
+ 61 | |                           {project.bugs_count_active} active{" "}
+ 62 | |                           {`bug${project.bugs_count_active === 1 ? "" : "s"}`},
+ 63 | |                           total {project.bugs_count_total}{" "}
+ 64 | |                           {`bug${project.bugs_count_total === 1 ? "" : "s"}`}
+ 65 | |                         </div>
+ 66 | |                       </div>
+ 67 | |                     </div>
+ 68 | |                   </Link>
+ 69 | |                 );
+ 70 | |               })}
+ 71 | |           </div>
+ 72 | |         </main>
+ 73 | |       </div>
+ 74 | `->   );
+    `----
+
+  x Unexpected token `}`. Expected this, import, async, function, [ for array literal, { for object literal, @ for decorator, function, class, null, true, false, number, bigint, string, regexp, `
+  | for template literal, (, or an identifier
+    ,----
+ 75 | }
+    : ^
+    `----
+
+Caused by:
+    0: failed to process input file
+    1: Syntax Error
+wait  - compiling...
+event - compiled client and server successfully in 429 ms (835 modules)
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',
+  code: 'ERR_INVALID_URL'
+}
+wait  - compiling...
+event - compiled client and server successfully in 283 ms (835 modules)
+TypeError [ERR_INVALID_URL]: Invalid URL
+    at new NodeError (node:internal/errors:387:5)
+    at URL.onParseError (node:internal/url:564:9)
+    at new URL (node:internal/url:640:5)
+    at dispatchHttpRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:171:20)
+    at new Promise (<anonymous>)
+    at http (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/adapters/http.js:107:10)
+    at Axios.dispatchRequest (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/dispatchRequest.js:51:10)
+    at Axios.request (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:142:33)
+    at Axios.<computed> [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/core/Axios.js:168:17)
+    at Function.wrap [as get] (file:///Users/kristian/Developer/arol/senior-part/open-bug-tracker/node_modules/axios/lib/helpers/bind.js:5:15) {
+  input: '/projects',

@@ -1,5 +1,8 @@
+/** @format */
+
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import qs from "qs";
 import { APIprojects } from "../../lib/api";
 import {
   Badge,
@@ -13,6 +16,8 @@ import styles from "../../styles/ProjectsId.module.css";
 import { useUser } from "../../lib/auth";
 
 import Link from "next/link";
+import { NextPageContext } from "next";
+import QueryString from "qs";
 
 interface Project {
   id: number;
@@ -36,7 +41,7 @@ function ProjectId(): JSX.Element {
   const id = router.query.id;
 
   const [project, setProject] = useState<any>("");
-  useUser()
+  useUser();
 
   useEffect(() => {
     if (typeof id !== "string") {
@@ -50,7 +55,6 @@ function ProjectId(): JSX.Element {
 
     getProject(id);
   }, [id]);
-
 
   return (
     <div className={styles.container}>
@@ -107,3 +111,25 @@ function ProjectId(): JSX.Element {
 }
 
 export default ProjectId;
+
+export async function getServerSideProps(context: NextPageContext) {
+  const redirect = {
+    redirect: {
+      destrination: "/",
+      permanent: false,
+    },
+  };
+  if (context.req === undefined || context.req.headers.cookie === undefined) {
+    return redirect;
+  }
+  const { token } = qs.parse(context.req.headers.cookie);
+  if (typeof token !== "string") {
+    return redirect;
+  }
+  const result = await APIprojects.getProjects();
+  return {
+    props: {
+      projects: result,
+    },
+  };
+}

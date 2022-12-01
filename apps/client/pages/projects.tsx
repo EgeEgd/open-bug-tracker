@@ -1,13 +1,15 @@
 /** @format */
 
-import { NextPageContext } from "next";
+import { GetServerSideProps, NextPageContext } from "next";
 import Link from "next/link";
 import { useState } from "react";
 import FormProject from "../components/newProject";
 import { APIprojects, setToken } from "../lib/api";
 import { UseUser } from "../lib/auth";
 import styles from "../styles/Projects.module.css";
-import qs from 'qs'
+import qs from "qs";
+import Router from "next/router";
+import { Cookies } from "next/dist/server/web/spec-extension/cookies";
 
 interface Project {
   id: number;
@@ -16,22 +18,17 @@ interface Project {
   bugs_count_total: number;
 }
 
-interface ProjectPageProps {
-  projects: Project[]
-}
-
-function Projects({ projects }: ProjectPageProps): JSX.Element {
-  console.log('projects', projects)
+function Projects({}: GetServerSideProps): JSX.Element {
   const [newProjects, setNewProjects] = useState<Project[]>([]);
 
   UseUser();
 
-  const allProjects = projects.concat(newProjects)
-
   const createProject = async function (projectInput: string) {
-    const result = await APIprojects.postProjects(projectInput)
-    const project = result.data as Project
-    setNewProjects(projects => projects.concat(project))
+    const result = await APIprojects.postProjects(projectInput);
+    const project = result?.data;
+    return setNewProjects((projects) =>
+      projects.concat(...newProjects, project)
+    );
   };
 
   return (
@@ -40,63 +37,76 @@ function Projects({ projects }: ProjectPageProps): JSX.Element {
         <h1 className={styles.title}>PROJECTS</h1>
         <FormProject onSubmit={createProject}> </FormProject>
         <div className={styles.list}>
-          {allProjects.map((project: Project) => {
-            return (
-              <Link key={project.id} href={`/projects/${project.id}`}>
-                <div className={styles.element}>
-                  <div className={styles.upBox}>
-                    <h3 className={styles.subTitle}>{project.name}</h3>
+          {newProjects.length > 1 &&
+            newProjects.map((project: Project) => {
+              return (
+                <Link key={project.id} href={`/projects/${project.id}`}>
+                  <div className={styles.element}>
+                    <div className={styles.upBox}>
+                      <h3 className={styles.subTitle}>{project.name}</h3>
 
-                    {project.bugs_count_active < 1 && (
-                      <div className={styles.solved}> SOLVED</div>
-                    )}
-                    {project.bugs_count_active > 0 && (
-                      <div className={styles.toFix}> TO FIX</div>
-                    )}
-                  </div>
-                  <div className={styles.subBox}>
-                    <div className={styles.idTitle}>
-                      Project id: {project.id}
+                      {project.bugs_count_active < 1 && (
+                        <div className={styles.solved}> SOLVED</div>
+                      )}
+                      {project.bugs_count_active > 0 && (
+                        <div className={styles.toFix}> TO FIX</div>
+                      )}
                     </div>
-                    <div>
-                      {project.bugs_count_active} active{" "}
-                      {`bug${project.bugs_count_active === 1 ? "" : "s"}`},
-                      total {project.bugs_count_total}{" "}
-                      {`bug${project.bugs_count_total === 1 ? "" : "s"}`}
+                    <div className={styles.subBox}>
+                      <div className={styles.idTitle}>
+                        Project id: {project.id}
+                      </div>
+                      <div>
+                        {project.bugs_count_active} active{" "}
+                        {`bug${project.bugs_count_active === 1 ? "" : "s"}`},
+                        total {project.bugs_count_total}{" "}
+                        {`bug${project.bugs_count_total === 1 ? "" : "s"}`}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            );
-          })}
+                </Link>
+              );
+            })}
         </div>
       </main>
     </div>
-  )
+  );
 }
 
 export default Projects;
 
+//getServerside props even if there is no props
 export async function getServerSideProps(context: NextPageContext) {
-  const redirect = {
-    redirect: {
-      destination: '/',
-      permanent: false
-    }
+  const { token } = context.query;
+  const cookies = new Cookies(context.req);
+  const bearer = cookies.get("token");
+  if (typeof token === "string") {
+    setToken(token);
+    cookies.set("token", token);
+  } else if (typeof bearer === "string") {
+    setToken(bearer);
   }
-  if (context.req === undefined || context.req.headers.cookie === undefined) {
-    return redirect
-  }
-  const { token } = qs.parse(context.req.headers.cookie)
-  if (typeof token !== 'string') {
-    return redirect
-  }
-  setToken(token)
+
   const result = await APIprojects.getProjects();
+  const projects = result;
+
+  // if there is not projects return dummy data
+  if (!projects) {
+    return {
+      props: {
+        projects: {
+          id: 1,
+          name: "Project 1",
+          bugs_count_active: 0,
+          bugs_count_total: 0,
+        },
+      },
+    };
+  }
 
   return {
     props: {
-      projects: result
-    }
-  }
+      projects: result,
+    },
+  };
 }

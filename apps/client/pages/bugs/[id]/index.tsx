@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { APIBugs } from "../../../lib/api";
-import { useUser } from "../../../lib/auth";
+import { APIBugs, setToken } from "../../../lib/api";
+import { UseUser } from "../../../lib/auth";
 import styles from "../../../styles/BugsId.module.css";
 import { Badge, DateTime } from "@contentful/f36-components";
+import { NextPage, NextPageContext } from "next";
+import qs from "qs";
 
 interface Bug {
   id: string;
@@ -138,3 +140,26 @@ function Bug(): JSX.Element {
 }
 
 export default Bug;
+
+export async function getServerSideProps(context: NextPageContext) {
+  const redirect = {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
+  if (context.req === undefined || context.req.headers.cookie === undefined) {
+    return redirect;
+  }
+  const { token } = qs.parse(context.req.headers.cookie);
+  if (typeof token !== "string") {
+    return redirect;
+  }
+  setToken(token);
+  const results = await APIBugs.getBugs();
+  return {
+    props: {
+      bugs: results,
+    },
+  };
+}

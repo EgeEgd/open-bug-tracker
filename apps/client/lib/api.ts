@@ -35,18 +35,14 @@ const APIprojects = {
         name: project,
       });
     } catch (error) {
-      console.error(error)
-      throw new Error("Was not able to post project");
+      console.error(error);
     }
   },
   async getProjects(): Promise<Project[] | undefined> {
     try {
-      return await (
-        await api.get<Project[]>("/projects")
-      ).data;
+      return (await api.get<Project[]>("/projects")).data;
     } catch (error) {
-      console.error(error)
-      throw new Error("was not able to get project");
+      console.error(error);
     }
   },
   async getProject(id: string) {
@@ -55,7 +51,7 @@ const APIprojects = {
       console.log(result);
       return result;
     } catch (error) {
-      throw new Error("was not able to get bugs");
+      console.error(error);
     }
   },
 };
