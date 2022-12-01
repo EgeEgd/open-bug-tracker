@@ -2,10 +2,10 @@
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { APIOccurrences } from "../../../../lib/api";
+import { APIOccurrences } from "../../../../../lib/api";
 
 import styles from "../../../../styles/OccurrenceId.module.css";
-import { useUser } from "../../../../lib/auth";
+import { useUser } from "../../../../../lib/auth";
 interface Occurrence {
   _id: string;
   project_id: number;
@@ -69,3 +69,4 @@ function Occurrence(): JSX.Element {
 }
 
 export default Occurrence;
+

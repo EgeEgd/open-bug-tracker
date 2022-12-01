@@ -1,13 +1,19 @@
-/** @format */
-
-import { NextPageContext } from "next";
+import {
+  Badge,
+  Box,
+  Card,
+  EntityList,
+  Subheading,
+  Modal,
+} from "@contentful/f36-components";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { Key, ReactNode, useEffect, useState } from "react";
 import FormProject from "../components/newProject";
-import { APIprojects, setToken } from "../lib/api";
-import { UseUser } from "../lib/auth";
+import { APIprojects } from "../lib/api";
+import { useUser } from "../lib/auth";
 import styles from "../styles/Projects.module.css";
-import qs from 'qs'
+
 
 interface Project {
   id: number;
@@ -16,23 +22,27 @@ interface Project {
   bugs_count_total: number;
 }
 
-interface ProjectPageProps {
-  projects: Project[]
-}
+function Projects(): JSX.Element {
+  const [listProjects, setListProjects] = useState<any>([]);
+  const [projectId, setProjectid] = useState("");
 
-function Projects({ projects }: ProjectPageProps): JSX.Element {
-  console.log('projects', projects)
-  const [newProjects, setNewProjects] = useState<Project[]>([]);
+  useUser()
 
-  UseUser();
+  const getProjects = async function () {
+    const result = await APIprojects.getProjects();
 
-  const allProjects = projects.concat(newProjects)
-
-  const createProject = async function (projectInput: string) {
-    const result = await APIprojects.postProjects(projectInput)
-    const project = result.data as Project
-    setNewProjects(projects => projects.concat(project))
+    setListProjects(result);
   };
+
+  const createProject = async function (project: string) {
+    const result = await APIprojects.postProjects(project);
+    setProjectid(result?.data.id);
+    getProjects();
+  };
+
+  useEffect(() => {
+    getProjects();
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -40,7 +50,7 @@ function Projects({ projects }: ProjectPageProps): JSX.Element {
         <h1 className={styles.title}>PROJECTS</h1>
         <FormProject onSubmit={createProject}> </FormProject>
         <div className={styles.list}>
-          {allProjects.map((project: Project) => {
+          {listProjects?.map((project: Project) => {
             return (
               <Link key={project.id} href={`/projects/${project.id}`}>
                 <div className={styles.element}>
@@ -72,31 +82,7 @@ function Projects({ projects }: ProjectPageProps): JSX.Element {
         </div>
       </main>
     </div>
-  )
+  );
 }
 
 export default Projects;
-
-export async function getServerSideProps(context: NextPageContext) {
-  const redirect = {
-    redirect: {
-      destination: '/',
-      permanent: false
-    }
-  }
-  if (context.req === undefined || context.req.headers.cookie === undefined) {
-    return redirect
-  }
-  const { token } = qs.parse(context.req.headers.cookie)
-  if (typeof token !== 'string') {
-    return redirect
-  }
-  setToken(token)
-  const result = await APIprojects.getProjects();
-
-  return {
-    props: {
-      projects: result
-    }
-  }
-}

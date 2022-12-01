@@ -40,6 +40,14 @@ const Home: NextPage = () => {
     }
   }, [router, setToken, token]);
 
+  useEffect(() => {
+    const bearer = api.defaults.headers.common["Authorization"];
+    if (typeof bearer === "string" && bearer.length > 9) {
+      router.push("http://localhost:3000/app/projects");
+    }
+  }, [router]);
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -70,7 +78,7 @@ const Home: NextPage = () => {
             </div>
           </Link>
 
-          <Link href={`/projects`} className={styles.card}>
+          <Link href={`/app/projects`} className={styles.card}>
             <div>
               <h2>2. Create a project &rarr;</h2>
               <p>
@@ -102,7 +110,7 @@ const Home: NextPage = () => {
             </p>
           </a>
 
-          <Link href={`/projects`} className={styles.card}>
+          <Link href={`/app/projects`} className={styles.card}>
             <div>
               <h2>
                 4. Run the package in your app and explore the errors &rarr;

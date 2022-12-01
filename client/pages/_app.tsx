@@ -1,9 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { authContext } from "../lib/auth";
-import qs from 'qs'
-import { NextPageContext } from "next";
-
 
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
@@ -15,4 +12,3 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 }
 
 export default MyApp;
-
