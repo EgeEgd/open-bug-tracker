@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import FormProject from "../components/newProject";
 import { APIprojects, setToken } from "../lib/api";
-import { UseUser } from "../lib/auth";
+import { useUser } from "../lib/auth";
 import styles from "../styles/Projects.module.css";
 import qs from 'qs'
 
@@ -21,10 +21,9 @@ interface ProjectPageProps {
 }
 
 function Projects({ projects }: ProjectPageProps): JSX.Element {
-  console.log('projects', projects)
   const [newProjects, setNewProjects] = useState<Project[]>([]);
 
-  UseUser();
+  useUser();
 
   const allProjects = projects.concat(newProjects)
 
@@ -84,6 +83,7 @@ export async function getServerSideProps(context: NextPageContext) {
       permanent: false
     }
   }
+
   if (context.req === undefined || context.req.headers.cookie === undefined) {
     return redirect
   }
@@ -93,7 +93,6 @@ export async function getServerSideProps(context: NextPageContext) {
   }
   setToken(token)
   try {
-    console.log('token', token)
     const result = await APIprojects.getProjects();
     return {
       props: {
