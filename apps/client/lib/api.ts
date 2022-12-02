@@ -2,9 +2,6 @@
 
 import axios from "axios";
 
-import type { NextApiRequest, NextApiResponse } from "next";
-import { config } from "process";
-
 interface Data {
   name: string;
 }
@@ -127,7 +124,6 @@ const APIBugs = {
   },
 };
 const setToken = function (token: string): void {
-  console.log(api.defaults.headers.common);
   api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 };
 

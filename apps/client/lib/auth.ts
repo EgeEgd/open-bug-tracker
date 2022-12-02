@@ -10,12 +10,16 @@ interface CurrentUser {
   user: { id: number; name: string } | null;
 }
 
-export function UseUser(): CurrentUser {
+export function useUser(): CurrentUser {
   const user = useContext(authContext);
   useEffect(() => {
-    const mytoken = localStorage.getItem("token");
-    if (mytoken) {
-      setToken(mytoken);
+    const token = document.cookie
+      .split(";")
+      .find((row) => row.trim().startsWith("token="))
+      ?.split("=")[1];
+
+    if (token) {
+      setToken(token);
     }
   });
   return {

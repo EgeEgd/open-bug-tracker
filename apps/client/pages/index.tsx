@@ -9,11 +9,10 @@ import type { NextPage, NextPageContext } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { type } from "os";
 import { useEffect } from "react";
 import LoginButton from "../components/newProject/LoginButton";
 import { api } from "../lib/api";
-import { UseUser } from "../lib/auth";
+import { useUser } from "../lib/auth";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -23,7 +22,7 @@ const Home: NextPage = () => {
   const router = useRouter();
   const { token } = router.query;
 
-  const { setToken } = UseUser();
+  const { setToken } = useUser();
   useEffect(() => {
     if (typeof token === "string") {
       setToken(token);
